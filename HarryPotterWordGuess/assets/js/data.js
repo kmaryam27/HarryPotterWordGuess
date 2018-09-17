@@ -60,7 +60,7 @@ const wordData = [
     }
     ,
     {
-      word: "Felix Felicis",
+      word: "FelixFelicis",
       level: 'Hard',
       clue: 'a name'
     }

@@ -44,16 +44,20 @@ function shuffle(wordArray) {
 /**********************Next btn click */
  $('#nextBtn').on('click', function(){
     event.preventDefault(); 
-    letterArray =[];
-    letterArrayGuess =[];
+
+     letterArrayGuess =[];//letter guess true;
+     letterArray =[];//letter guss false
+     letterCounter = 0;//size of dash replaced by letter
+     mythWord = [];//word for this step from wordArray list
+    $('#winText').addClass('nonVisible');
+
     nextbtnCounter++;
-    if(nextbtnCounter < mythWord.length){
-        mythWord = wordArray[nextbtnCounter];
-        for(let i = 0; i <  mythWord.length; i++) {
-            $('#gameContent').append('<div id="dash' + i + '" class="dashes">&mdash;</div>' )
-          }
-          $(this).addClass('nonVisible');
+    mythWord = wordArray[nextbtnCounter].split('');
+    for(let i = 0; i <  mythWord.length; i++) {
+        $('#gameContent').append('<div id="dash' + i + '" class="dashes">&mdash;</div>' )
     }
+        $(this).addClass('nonVisible');
+    
  });
 
 
@@ -87,11 +91,18 @@ function shuffle(wordArray) {
                     letterArrayGuess.push(key);
                     letterCounter = letterCounter+ letC;
                     if(letterCounter === mythWord.length){
-                        
-                        $('#gameContent').empty();
-                        $('#winText').text(`congratulations You Guessed ${mythWord.join('')}`);
-                        $('#nextBtn').removeClass('nonVisible');
-                        $('#winText').removeClass('nonVisible');
+                        if(nextbtnCounter === wordArray.length - 1){
+                            $('#gameContent').empty();
+                            $('#winText').text(`congratulations You Guessed ${mythWord.join('')} and finished this level`);
+                            $('#winText').removeClass('nonVisible');
+                        }
+                        else{
+                            $('#gameContent').empty();
+                            $('#winText').text(`congratulations You Guessed ${mythWord.join('')}`);
+                            $('#nextBtn').removeClass('nonVisible');
+                            $('#winText').removeClass('nonVisible');
+                        }
+                       
                     }
                 }
 
@@ -139,6 +150,26 @@ else if (document.attachEvent) {
 let restart = function(){
     location.reload();
 }
+
+$('#levelSelector').on('change', function (e) {
+    event.preventDefault();
+    var valueSelected = this.value;
+    
+     wordArray= [];//put word for this level
+     letterArrayGuess =[];//letter guess true;
+     letterArray =[];//letter guss false
+     letterCounter = 0;//size of dash replaced by letter
+     starCounter = 10;//counter for lost
+     mythWord = [];//word for this step from wordArray list
+     nextbtnCounter = 0;//for check next btn visibility
+
+
+/***************load game no next btn no text message */
+$('#winText').addClass('nonVisible');
+$('#nextBtn').addClass('nonVisible');
+$('#startBtn').removeClass('nonVisible');
+$('#gameContent').empty();
+});
 
 
   
