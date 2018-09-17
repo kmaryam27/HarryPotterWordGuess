@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--reset all browsers style-->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <!--add 2 font for this document-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--my style .css file-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>HarryPotterMemoryGame</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Harry Potter word Guess Game</h1>
+        <button id="resetBtn" onclick="restart()">restart</button>
+        <section id="startGame">
+            <select name="level" id="levelSelector">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+              </select>
+            <button id="startBtn">play</button>
+            <button id="nextBtn">Next</button>
+        </section>
+    </header>
+
+    <main>
+        <div id="pointDiv">
+                <label>point:</label>
+                <i class="material-icons" id="star1">&#xe885;</i>
+                <i class="material-icons" id="star2">&#xe885;</i>
+                <i class="material-icons" id="star3">&#xe885;</i>
+                <i class="material-icons" id="star4">&#xe885;</i>
+                <i class="material-icons" id="star5">&#xe885;</i>
+                <i class="material-icons" id="star6">&#xe885;</i>
+                <i class="material-icons" id="star7">&#xe885;</i>
+                <i class="material-icons" id="star8">&#xe885;</i>
+                <i class="material-icons" id="star9">&#xe885;</i>
+                <i class="material-icons" id="star10">&#xe885;</i>
+                
+        </div>
+         
+        <div id="winText"><p>congratulations You win</p></div>
+        <section class="container" id="gameContent"></section>
+    </main>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
